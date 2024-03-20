@@ -1,0 +1,3 @@
+[submodule "LaBelleRenderer/vendor/GLFW"]
+	path = LaBelleRenderer/vendor/GLFW
+	url = https://github.com/BavleyDanial/glfw
