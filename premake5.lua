@@ -12,10 +12,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDirs = {}
 IncludeDirs["GLFW"] = "LaBelleRenderer/vendor/GLFW/include"
 IncludeDirs["GLAD"] = "LaBelleRenderer/vendor/GLAD/include"
+IncludeDirs["ImGui"] = "LaBelleRenderer/vendor/ImGui"
 
 group "Dependencies"
     include "LaBelleRenderer/vendor/GLFW"
     include "LaBelleRenderer/vendor/GLAD"
+    include "LaBelleRenderer/vendor/ImGui"
 group ""
 
 project "LaBelleRenderer"
@@ -34,11 +36,13 @@ project "LaBelleRenderer"
 		"%{prj.name}/src",
         "%{IncludeDirs.GLFW}",
         "%{IncludeDirs.GLAD}",
+        "%{IncludeDirs.ImGui}",
 	}
 
     links {
         "GLFW",
         "GLAD",
+        "ImGui",
         "opengl32.lib",
     }
 

@@ -1,3 +1,7 @@
 [submodule "LaBelleRenderer/vendor/GLFW"]
 	path = LaBelleRenderer/vendor/GLFW
 	url = https://github.com/BavleyDanial/glfw
+[submodule "LaBelleRenderer/vendor/ImGui"]
+	path = LaBelleRenderer/vendor/ImGui
+	url = https://github.com/BavleyDanial/imgui.git
+	branch = docking
