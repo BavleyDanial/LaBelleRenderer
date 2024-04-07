@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
+#include "Window.h"
 
 namespace LBR {
 
@@ -11,10 +11,16 @@ namespace LBR {
 		~Application();
 
 		void Run();
+		inline void Close() { m_IsRunning = false; }
 
-	private:
-		GLFWwindow* m_Window = nullptr;
+		inline static Application& GetApp() { return *s_AppInstance; }
+		inline Window& GetWindow() { return *m_Window; }
+
+	private:   
 		static Application* s_AppInstance;
+		bool m_IsRunning;
+	private:
+		Window* m_Window = nullptr;
 	};
 
 }

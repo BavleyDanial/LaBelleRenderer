@@ -1,12 +1,11 @@
-#include "Application.h"
+#include <Application.h>
 
-#include "Core.h"
+#include <Core.h>
+#include <glad/glad.h>
 
 #include <imgui.h>
-#include "GUI/ImGui/imgui_impl_glfw.h"
-#include "GUI/ImGui/imgui_impl_opengl3.h"
-
-#include <glad/glad.h>
+#include <GUI/ImGui/imgui_impl_glfw.h>
+#include <GUI/ImGui/imgui_impl_opengl3.h>
 
 namespace LBR {
 
@@ -16,34 +15,23 @@ namespace LBR {
 	{
 		ASSERT(!s_AppInstance, "Application already has an instance!");
 		s_AppInstance = this;
+		m_IsRunning = true;
 
-		if (!glfwInit())
-		{
-			std::cout << "Could not initialize GLFW!!\n";
-			return;
-		}
+		WindowSpecifications specs;
+		specs.Width = 1280;
+		specs.Height = 720;
+		specs.Title = "Title";
+		specs.IsFullScreen = false;
+		specs.IsVSync = true;
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-
-		m_Window = glfwCreateWindow(1920, 1080, "Testing", nullptr, nullptr);
-		if (!m_Window)
-		{
-			std::cout << "Couldn't create window!!\n";
-			return;
-		}
-		glfwMakeContextCurrent(m_Window);
+		m_Window = new Window(specs);
 
 		gladLoadGL();
-
-		Run();
 	}
 
 	Application::~Application()
 	{
-		glfwTerminate();
+		// TODO: Clean the application termination process
 	}
 
 	void Application::Run()
@@ -71,14 +59,14 @@ namespace LBR {
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 		}
 
-		ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
+		ImGui_ImplGlfw_InitForOpenGL(m_Window->GetNativeWindow(), true);
 		ImGui_ImplOpenGL3_Init("#version 460");
 
 		bool show_demo_window = true;
 		bool show_another_window = false;
 		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-		while (!glfwWindowShouldClose(m_Window))
+		while (m_IsRunning)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
 
@@ -131,7 +119,7 @@ namespace LBR {
 			// Rendering
 			ImGui::Render();
 			int display_w, display_h;
-			glfwGetFramebufferSize(m_Window, &display_w, &display_h);
+			glfwGetFramebufferSize(m_Window->GetNativeWindow(), &display_w, &display_h);
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 			// Update and Render additional Platform Windows
@@ -145,8 +133,8 @@ namespace LBR {
 				glfwMakeContextCurrent(backup_current_context);
 			}
 
-			glfwSwapBuffers(m_Window);
-			glfwPollEvents();
+			m_Window->SwapBuffers();
+			m_Window->PollEvents();
 		}
 
 		ImGui_ImplOpenGL3_Shutdown();
