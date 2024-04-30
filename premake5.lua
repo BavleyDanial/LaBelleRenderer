@@ -13,11 +13,13 @@ IncludeDirs = {}
 IncludeDirs["GLFW"] = "LaBelleRenderer/vendor/GLFW/include"
 IncludeDirs["GLAD"] = "LaBelleRenderer/vendor/GLAD/include"
 IncludeDirs["ImGui"] = "LaBelleRenderer/vendor/ImGui"
+IncludeDirs["glm"] = "LaBelleRenderer/vendor/glm"
 
 group "Dependencies"
     include "LaBelleRenderer/vendor/GLFW"
     include "LaBelleRenderer/vendor/GLAD"
     include "LaBelleRenderer/vendor/ImGui"
+    include "LaBelleRenderer/vendor/glm"
 group ""
 
 project "LaBelleRenderer"
@@ -37,6 +39,7 @@ project "LaBelleRenderer"
         "%{IncludeDirs.GLFW}",
         "%{IncludeDirs.GLAD}",
         "%{IncludeDirs.ImGui}",
+        "%{IncludeDirs.glm}",
 	}
 
     links {

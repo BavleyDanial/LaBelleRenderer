@@ -2,6 +2,7 @@
 
 #include <Core.h>
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 #include <imgui.h>
 #include <Renderer/Renderer.h>
@@ -39,10 +40,12 @@ namespace LBR {
 
 	void Application::Run()
 	{
+		glm::vec4 v(0.2, 0.2, 0.2, 1);
+
 		while (m_IsRunning)
 		{
 			glClear(GL_COLOR_BUFFER_BIT);
-			m_Renderer->ClearColor(0.2, 0.2, 0.2, 1);
+			m_Renderer->ClearColor(v);
 
 			m_Window->SwapBuffers();
 			m_Window->PollEvents();

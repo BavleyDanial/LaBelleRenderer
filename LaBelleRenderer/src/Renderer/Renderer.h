@@ -3,6 +3,8 @@
 #include <Renderer/RendererCommands.h>
 #include <Platform/OpenGL/OpenGLCommands.h>
 
+#include <glm/glm.hpp>
+
 namespace LBR {
 
 	enum class RendererAPI
@@ -24,7 +26,7 @@ namespace LBR {
 
 		RendererAPI GetRendererAPI() { return m_RendererAPI; }
 
-		void ClearColor(float r, float g, float b, float a);
+		void ClearColor(const glm::vec4& color);
 		void DrawIndexed();
 
 	private:

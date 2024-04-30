@@ -51,8 +51,8 @@ namespace LBR {
 		s_RendererCommands->DrawIndexed();
 	}
 
-	void Renderer::ClearColor(float r, float g, float b, float a)
+	void Renderer::ClearColor(const glm::vec4& color)
 	{
-		s_RendererCommands->ClearColor(r, g, b, a);
+		s_RendererCommands->ClearColor(color);
 	}
 }

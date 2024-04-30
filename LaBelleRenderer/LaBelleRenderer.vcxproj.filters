@@ -7,8 +7,14 @@
     <Filter Include="GUI\ImGui">
       <UniqueIdentifier>{D458DF18-40C3-938F-8901-4535F5AA71E4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{1653CE33-0220-293F-2B39-17E717655ECD}</UniqueIdentifier>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{7CCE658F-689B-C09A-91B4-AE427DE0F528}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -20,11 +26,19 @@
     <ClInclude Include="src\GUI\ImGui\imgui_impl_opengl3.h">
       <Filter>GUI\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\GUI\ImGui\imgui_impl_opengl3_loader.h">
+      <Filter>GUI\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLCommands.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\RendererCommands.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Window.h" />
-    <ClInclude Include="src\GUI\ImGui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="src\Renderer\Renderer.h" />
-    <ClInclude Include="src\Renderer\RendererCommands.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLCommands.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
@@ -35,7 +49,9 @@
       <Filter>GUI\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Renderer\Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Window.cpp" />
-    <ClCompile Include="src\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

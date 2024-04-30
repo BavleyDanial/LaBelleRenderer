@@ -15,9 +15,9 @@ namespace LBR {
 			}
 		}
 
-		virtual void ClearColor(float r, float g, float b, float a) override
+		virtual void ClearColor(const glm::vec4& color) override
 		{
-			glClearColor(r, g, b, a);
+			glClearColor(color.r, color.g, color.b, color.a);
 		}
 
 		virtual void DrawIndexed() override

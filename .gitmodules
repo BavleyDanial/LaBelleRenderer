@@ -5,3 +5,6 @@
 	path = LaBelleRenderer/vendor/ImGui
 	url = https://github.com/BavleyDanial/imgui.git
 	branch = docking
+[submodule "LaBelleRenderer/vendor/glm"]
+	path = LaBelleRenderer/vendor/glm
+	url = https://github.com/BavleyDanial/glm.git

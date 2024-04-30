@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <glm/glm.hpp>
 
 namespace LBR {
 
@@ -8,7 +9,7 @@ namespace LBR {
 	{
 	public:
 		virtual void Init() = 0;
-		virtual void ClearColor(float r, float g, float b, float a) = 0;
+		virtual void ClearColor(const glm::vec4& color) = 0;
 		virtual void DrawIndexed() = 0;
 	};
 }
