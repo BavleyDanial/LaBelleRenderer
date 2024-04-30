@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "Renderer/Renderer.h"
 
 namespace LBR {
 
@@ -21,6 +22,7 @@ namespace LBR {
 		bool m_IsRunning;
 	private:
 		Window* m_Window = nullptr;
+		Renderer* m_Renderer = nullptr;
 	};
 
 }

@@ -20,11 +20,11 @@
     <ClInclude Include="src\GUI\ImGui\imgui_impl_opengl3.h">
       <Filter>GUI\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\RendererContext.h" />
     <ClInclude Include="src\Window.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="vendor\ImGui\backends\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="src\GUI\ImGui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\Renderer\Renderer.h" />
+    <ClInclude Include="src\Renderer\RendererCommands.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLCommands.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
@@ -35,7 +35,7 @@
       <Filter>GUI\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Window.cpp" />
+    <ClCompile Include="src\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

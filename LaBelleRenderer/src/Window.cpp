@@ -22,20 +22,29 @@ namespace LBR {
 			return;
 		}
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
+		//if ()
+		{
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		}
+		//else
+		{
+			//glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+		}
+		
 		m_Window = glfwCreateWindow(m_WindowSpecs.Width, m_WindowSpecs.Height, m_WindowSpecs.Title.c_str(), nullptr, nullptr);
 		if (!m_Window)
 		{
 			std::cout << "Couldn't create window!!\n";
 			return;
 		}
-		glfwMakeContextCurrent(m_Window);
+
+		//if (RendererContext::GetCurrentAPI() == GraphicsAPI::OPENGL)
+			glfwMakeContextCurrent(m_Window);
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
-			Window windowRef = Application::GetApp().GetWindow();
+			Window& windowRef = Application::GetApp().GetWindow();
 			windowRef.Shutdown();
 		});
 	}
