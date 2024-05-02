@@ -39,6 +39,7 @@
       <Filter>Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Window.h" />
+    <ClInclude Include="src\Renderer\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
